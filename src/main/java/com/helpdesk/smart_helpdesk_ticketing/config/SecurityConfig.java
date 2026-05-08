@@ -1,4 +1,3 @@
-
 package com.helpdesk.smart_helpdesk_ticketing.config;
 
 import org.springframework.context.annotation.Bean;
@@ -17,35 +16,32 @@ import java.util.List;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain securityFilterChain(
-            HttpSecurity http) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-                .cors(cors->{})
-                .csrf(csrf->csrf.disable())
-                .authorizeHttpRequests(auth->
+                .cors(cors -> {})
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth ->
                         auth.anyRequest().permitAll()
                 );
 
         return http.build();
-
     }
 
-
-
     @Bean
-    public CorsConfigurationSource
-    corsConfigurationSource(){
+    public CorsConfigurationSource corsConfigurationSource() {
 
-        CorsConfiguration config=
-                new CorsConfiguration();
+        CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowedOrigins(
-                List.of("http://localhost:5176", "https://ticketpro-helpdesk-8jvzoud3a-vercel.app")
+                List.of(
+                        "http://localhost:5176",
+                        "https://ticketpro-helpdesk-frontend.vercel.app"
+                )
         );
 
         config.setAllowedMethods(
-                List.of("GET","POST","PUT","DELETE")
+                List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
         );
 
         config.setAllowedHeaders(
@@ -54,18 +50,11 @@ public class SecurityConfig {
 
         config.setAllowCredentials(true);
 
-
-        UrlBasedCorsConfigurationSource
-                source=
+        UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
 
-        source.registerCorsConfiguration(
-                "/**",
-                config
-        );
+        source.registerCorsConfiguration("/**", config);
 
         return source;
-
     }
-
 }
