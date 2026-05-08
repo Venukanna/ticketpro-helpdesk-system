@@ -36,7 +36,7 @@ public class SecurityConfig {
         config.setAllowedOrigins(
                 List.of(
                         "http://localhost:5176",
-                        "https://ticketpro-helpdesk-frontend.vercel.app"
+                        "https://ticketpro-helpdesk-frontend-8jvzoud3a.vercel.app/"
                 )
         );
 
