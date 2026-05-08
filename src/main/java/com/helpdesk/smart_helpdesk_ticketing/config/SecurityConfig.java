@@ -39,21 +39,7 @@ public class SecurityConfig {
                         "https://ticketpro-helpdesk-frontend.vercel.app"
                 )
         );
-//         config.setAllowedOriginPatterns(
-//     List.of(
-//         "http://localhost:5176",
-//         "https://*.vercel.app"
-//     )
-// );
 
-//         config.setAllowedOrigins(
-//     List.of(
-//         "http://localhost:5176",
-//         "https://ticketpro-helpdesk-frontend.vercel.app",
-//         "https://ticketpro-helpdesk-frontend-8jvzoud3a.vercel.app",
-//         "https://ticketpro-helpdesk-fro-git-207209-venu996366-gmailcoms-projects.vercel.app"
-//     )
-// );
 
         config.setAllowedMethods(
                 List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
