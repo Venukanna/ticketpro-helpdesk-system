@@ -33,12 +33,18 @@ public class SecurityConfig {
 
         CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOrigins(
-                List.of(
-                        "http://localhost:5176",
-                        "https://ticketpro-helpdesk-frontend-8jvzoud3a.vercel.app"
-                )
-        );
+        // config.setAllowedOrigins(
+        //         List.of(
+        //                 "http://localhost:5176",
+        //                 "https://ticketpro-helpdesk-frontend-8jvzoud3a.vercel.app"
+        //         )
+        // );
+        config.setAllowedOriginPatterns(
+    List.of(
+        "http://localhost:5176",
+        "https://*.vercel.app"
+    )
+);
 
         config.setAllowedMethods(
                 List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
